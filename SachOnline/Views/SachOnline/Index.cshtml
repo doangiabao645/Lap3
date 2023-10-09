@@ -1,0 +1,203 @@
+﻿@model IEnumerable<SachOnline.Models.SACH>
+@{
+    ViewBag.Title = "TRANG CHỦ";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style type="text/css">
+    .imgbook {
+        transition: all 1s ease-in;
+        width: 400px;
+    }
+
+        .imgbook:hover {
+            transform: scale(0.9);
+            cursor: pointer;
+        }
+
+    .size {
+        width: 300px;
+        height: 350px;
+    }
+</style>
+
+<h2 class="text-center">SÁCH MỚI</h2>
+<hr>
+<div class="row text-center">
+    @foreach (var sach in Model)
+    {
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div class="thumbnail">
+                <img src="~/Images/@sach.AnhSp" alt="Thumbnail Image 1" class="imgresponsive img-rounded imgbook size" >
+                <div class="caption">
+                    <h4 style="min-height:70px;">
+                        <a href="@Url.Action("BookDetail","SachOnline", new { id = sach.SachID})">@sach.TenSach</a>
+                    </h4>
+                    <p>
+                        <a href="@Url.Action("ChiTietSach","SachOnline",  new { id = sach.SachID})" class="btn btn-primary" role="button">
+                            <span class="glyphicon glyphicon-shopping-cart" ariahidden="true"></span> Add to Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<nav class="text-center">
+    <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
+    <ul class="pagination">
+        <li> <a href="#" aria-label="Previous"> <span ariahidden="true">&laquo;</span> </a> </li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li class="disabled"><a href="#">5</a></li>
+        <li> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+    </ul>
+</nav>
+<!--  <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+       <div class="thumbnail">
+           <img src="~/Images/Cach_Nghi_De_Thanh_Cong_Napoleon_Hill_39fed2e244.jpg" alt="Thumbnail Image 1"
+                class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm</h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+   <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+       <div class="thumbnail">
+           <img src="~/Images/Doc_Vi_Bat_Ky_Ai_David_J_Lieberman_dda18bf0f4.jpg" alt="Thumbnail Image 1"
+                class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm </h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+   <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-xs">
+       <div class="thumbnail">
+           <img src="~/Images/Quang_Ganh_Lo_Di_Va_Vui_Song_Dale_Carnegie_6d39e618e7.jpg" alt="Thumbnail Image 1"
+                class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm </h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+
+   <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+       <div class="thumbnail">
+           <img src="~/Images/sach_hay_nen_doc_dac_nhan_tam_72fc8142bb.jpeg" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm </h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+   <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+       <div class="thumbnail">
+           <img src="~/Images/sach_hay_nen_doc_nha_gia_kim_ea63da0d8f.jpeg" alt="Thumbnail Image 1"
+                class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm </h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+   <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-xs">
+       <div class="thumbnail">
+           <img src="~/Images/sach_hay_nhat_nen_doc_hat_giong_tam_hon_9187a42c48.jpg" alt="Thumbnail Image 1"
+                class="img-responsive img-rounded imgbook size">
+           <div class="caption">
+               <h3>Sản phẩm </h3>
+               <p>Mô tả tóm tắt sản phẩm</p>
+               <p>
+                   <a href="#" class="btn btn-primary" role="button">
+                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Thêm vào giỏ
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+   </div>
+    -->
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+        .pagination li {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            margin-right: 1px;
+        }
+
+            .pagination li:hover {
+                background-color: skyblue;
+                color: white;
+                border-color: #ffd800;
+            }
+
+            .pagination li a {
+                display: block;
+                text-decoration: none;
+                width: 28px;
+                height: 28px;
+            }
+</style>
+<!--<nav class="text-center">
+    <ul class="pagination">
+
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>-->

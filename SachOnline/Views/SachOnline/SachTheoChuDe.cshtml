@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "SachTheoChuDe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<hr />
+<h2 class="text-center">SÁCH THEO CHỦ ĐỀ</h2>
+<hr />
+<div class="row text-center">
+    @foreach (var sach in Model)
+    {
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div class="thumbnail">
+                <img src="~/Images/@sach.AnhSp" alt="Thumbnail Image 1" class="imgresponsive img-rounded imgbook size">
+                <div class="caption">
+                    <h4 style="min-height:70px;">
+                        <a href="@Url.Action("BookDetail","SachOnline", new { id = sach.SachID})">@sach.TenSach</a>
+                    </h4>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">
+                            <span class="glyphicon glyphicon-shopping-cart" ariahidden="true"></span> Add to Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
